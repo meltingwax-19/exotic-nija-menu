@@ -1,0 +1,402 @@
+/* ==========================================================================
+   Exotic Nija Meals — Styles (Expanded & Commented)
+   - Vanilla CSS (no frameworks)
+   - Mobile-first, modern features
+   - Hybrid documentation approach
+   ========================================================================== */
+
+/* ===========================
+   1) Color System (CSS Variables)
+   =========================== */
+:root {
+  /* Light theme */
+  --bg: #ffffff;
+  --surface: #f7f8fa;
+  --text: #14161a;
+  --muted: #616977;
+  --border: #e5e9f0;
+  --brand: #0ea5a5;
+  --brand-contrast: #ffffff;
+  --accent: #334155;
+}
+
+:root[data-theme="dark"] {
+  /* Dark theme overrides */
+  --bg: #0b0f14;
+  --surface: #10151c;
+  --text: #e6edf7;
+  --muted: #a6b0bf;
+  --border: #1e2a3a;
+  --brand: #22d3ee;
+  --brand-contrast: #0b0f14;
+  --accent: #94a3b8;
+}
+
+/* ===========================
+   2) Base / Resets
+   =========================== */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background: var(--surface);
+  color: var(--text);
+}
+
+a {
+  color: var(--brand);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===========================
+   3) Layout Utilities
+   =========================== */
+.container {
+  max-inline-size: 72rem;
+  /* logical property: instead of width, supports RTL layouts */
+  padding-inline: 1rem;
+  margin-inline: auto;
+}
+
+.flow>*+* {
+  /* vertical rhythm between siblings */
+  margin-block-start: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+.prose p {
+  color: var(--muted);
+}
+
+/* ===========================
+   4) Buttons
+   =========================== */
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1rem;
+  border-radius: 0.8rem;
+  background: var(--brand);
+  color: var(--brand-contrast);
+  border: 1px solid transparent;
+}
+
+.btn:hover {
+  opacity: 0.95;
+  text-decoration: none;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--brand);
+  border: 1px solid var(--brand);
+}
+
+/* ===========================
+   5) Accessibility helpers
+   =========================== */
+.skip-link {
+  position: absolute;
+  inset-inline-start: 1rem;
+  inset-block-start: -10rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--surface);
+  border-radius: 0.5rem;
+}
+
+.skip-link:focus {
+  inset-block-start: 1rem;
+  outline: 2px solid var(--brand);
+}
+
+/* Visually hidden text (for icons/buttons) */
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+/* ===========================
+   6) Header & Navigation
+   =========================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  border-block-end: 2px solid var(--border);
+  padding-block: 15px;
+  z-index: 20;
+}
+
+.header-row {
+  display: grid;
+  grid-template-columns: auto 40px auto 40px;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  inline-size: 40px;
+  block-size: 40px;
+  border: 0;
+  background: transparent;
+  font-size: 1.1rem;
+}
+
+/* Burger icon: 3 bars created with pseudo-elements */
+.nav-toggle {
+  inline-size: 40px;
+  block-size: 40px;
+  position: relative;
+  border: 0;
+  background: transparent;
+}
+
+.nav-toggle::before,
+.nav-toggle::after,
+.nav-toggle span {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  height: 2px;
+  background: currentColor;
+}
+
+.nav-toggle::before {
+  top: 12px;
+}
+
+.nav-toggle span {
+  top: 19px;
+}
+
+.nav-toggle::after {
+  top: 26px;
+}
+
+/* "X" state when menu is open */
+.nav-toggle[aria-expanded="true"]::before {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] span {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"]::after {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile nav panel */
+.site-nav {
+  position: fixed;
+  inset: 56px 0 auto 0;
+  transform: translateY(-120%);
+  background: var(--bg);
+  border-block-end: 1px solid var(--border);
+  transition: transform 0.25s ease;
+  z-index: 10;
+}
+
+.site-nav[data-state="open"] {
+  transform: translateY(0);
+}
+
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 1rem 1rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+/* Desktop nav */
+@media (min-width: 768px) {
+  .header-row {
+    grid-template-columns: 1fr auto auto;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .site-nav {
+    position: static;
+    transform: none;
+    border: 0;
+  }
+
+  .site-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0;
+  }
+}
+
+/* ===========================
+   7) Hero
+   =========================== */
+.hero {
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+  grid-template-columns: 1fr;
+  padding-block: clamp(1rem, 4vw, 3rem);
+}
+
+.hero__text h1 {
+  margin: 0 0 0.25rem 0;
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+  letter-spacing: 0.2px;
+}
+
+/* Wrapper prevents image overflow and enables aspect-ratio control */
+.hero__media {
+  border-radius: 1rem;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+/* Two columns on larger screens */
+@media (min-width: 768px) {
+  .hero {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+/* ===========================
+   8) Cards / Meals grid
+   =========================== */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding-block-end: 2rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  overflow: clip;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.card__body {
+  padding: 1rem;
+}
+
+@media (min-width: 600px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 980px) {
+  .cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ===========================
+   9) Responsive media (no squish)
+   =========================== */
+img,
+svg {
+  max-inline-size: 100%;
+  /* logical property: instead of height:auto */
+  block-size: auto;
+  display: block;
+}
+
+/* Do not enforce fixed heights; allow images to keep natural aspect ratio */
+.card__media,
+.hero__media,
+figure {
+  min-inline-size: 0;
+  /* You can set aspect-ratio: 4/3 or 16/9 on specific components if consistent tiles are desired */
+  aspect-ratio: auto;
+}
+
+/* On very small screens, constrain the hero image box to avoid huge heights */
+@media (max-width: 420px) {
+  .hero__media {
+    aspect-ratio: 4 / 3;
+  }
+
+  .hero__media img {
+    block-size: 100%%;
+    object-fit: cover;
+    /* fill box without distortion (may crop a bit) */
+  }
+}
+
+/* ===========================
+   10) Back to top button
+   =========================== */
+.to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.75rem;
+  border: 0;
+  background: var(--text);
+  color: var(--bg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 50;
+}
+
+.to-top:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+.to-top[data-visible="true"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ===========================
+   11) Footer
+   =========================== */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding-block: 2rem;
+  margin-block-start: 3rem;
+}
+
+/* ===========================
+   12) Utilities
+   =========================== */
+.inline-link {
+  text-decoration: underline;
+}
