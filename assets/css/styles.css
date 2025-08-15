@@ -349,7 +349,7 @@ figure {
     aspect-ratio: 4 / 3;
   }
 
-  .hero__media 
+  .hero__media
 }
 
 /* ===========================
@@ -405,6 +405,7 @@ figure {
   aspect-ratio: 4 / 3;
   overflow: hidden;
 }
+
 .hero__media img {
   inline-size: 100%;
   block-size: 100%;
@@ -413,11 +414,14 @@ figure {
 }
 
 .card__media {
-  overflow: hidden; /* soft crop only if image is slightly larger */
+  overflow: hidden;
+  /* soft crop only if image is slightly larger */
 }
+
 .card__media img {
   inline-size: 100%;
-  block-size: auto;   /* preserve natural aspect ratio */
+  block-size: auto;
+  /* preserve natural aspect ratio */
   display: block;
   /* no object-fit here to avoid heavy cropping */
 }
