@@ -1,5 +1,3 @@
-.
-
 🍽️ Exotic Nija Menu
 
 A responsive, lightweight, and visually appealing Nigerian food menu website showcasing a curated selection of traditional classics and creative modern twists. Designed for fast loading, clean structure, and mobile-first performance.
@@ -24,6 +22,7 @@ Accessible navigation — logical heading order, descriptive alt attributes.
 
 Local assets — no external dependencies required for core functionality.
 
+
 🛠️ Tech Stack
 
 HTML5 — semantic markup for structure and accessibility.
@@ -35,6 +34,7 @@ Flexbox & CSS Grid — layout management for different screen sizes.
 Vanilla JavaScript — for interactivity and enhancements.
 
 GitHub Pages — static site hosting.
+
 
 🗂️ Project Structure
 exotic-nija-menu/
@@ -70,11 +70,13 @@ exotic-nija-menu/
 │  └─ js/
 │     └─ script.js
 
+
 🖼️ Screenshots
 
-![Homepage – Desktop](assets/images/screenshots/home-desktop.png)
-![Homepage – Mobile](assets/images/screenshots/home-mobile.png)
-
+<p align="center">
+  <img src="assets/images/screenshots/home-desktop-1.png" alt="Homepage – Desktop" width="600">
+  <img src="assets/images/screenshots/home-mobile-1.png" alt="Homepage – Mobile" width="250">
+</p>
 
 
 🖼️ Special Image Handling — Efo riro Issue
@@ -104,6 +106,7 @@ HTML Example:
   <img src="assets/images/efo-riro.png" alt="Bowl of Nigerian Efo riro with spinach and assorted vegetables">
 </picture>
 
+
 📦 Local Setup
 
 No build tools required — just open index.html in your browser.
@@ -130,17 +133,19 @@ Choose Branch = main and Folder = / (root).
 Save — your site will publish at:
 https://meltingwax-19.github.io/exotic-nija-menu/
 
+
 📏 Image Optimization Rules (General)
 
 Preferred format: .webp first, .png or .jpg fallback.
 
 Hero images: ~1600px width, 150–250 KB.
 
-Dish images: ~800–1200px width, 50–150 KB.
+Dish images: ~349–500px width, 15-58 KB.
 
 Semantic file names: dish-name.webp (kebab-case).
 
 Alt text: short, descriptive, accessible.
+
 
 📋 Accessibility & Performance Checklist
 
@@ -154,12 +159,16 @@ Alt text: short, descriptive, accessible.
 
  Mobile-first breakpoints.
 
+
 📝 License
 
 This project is licensed under the MIT License — free to use and adapt.
 
+
 🙏 Credits
 
-Food photography: © respective owners / project author.
+Food photography:
 
-Icons: if applicable (e.g., Remix Icons / Heroicons).
+Some images are original, others are sourced from various online platforms. All rights belong to their original creators.
+
+Icons: (Not used in this project).
