@@ -103,7 +103,8 @@ HTML Example:
 
 <picture>
   <source srcset="assets/images/efo-riro.webp" type="image/webp">
-  <img src="assets/images/efo-riro-fixed.png" alt="Bowl of Nigerian Efo riro with spinach and assorted vegetables">
+  <img src="assets/images/efo-riro-fixed.png" alt="Bowl of Nigerian Efo riro with spinach and assorted vegetables" width="360" height="360">
+
 </picture>
 
 
