@@ -93,9 +93,9 @@ Converted .jpg → .webp for main use.
 
 Kept .png fallback for browsers without .webp support.
 
-Resized to ~800px width.
+Resized to ~500px width.
 
-Compressed to ~90 KB (.webp) and ~150 KB (.png fallback).
+Compressed to ~50 KB (.webp) and ~364 KB (.png fallback).
 
 Added descriptive alt text for accessibility.
 
@@ -103,7 +103,7 @@ HTML Example:
 
 <picture>
   <source srcset="assets/images/efo-riro.webp" type="image/webp">
-  <img src="assets/images/efo-riro.png" alt="Bowl of Nigerian Efo riro with spinach and assorted vegetables">
+  <img src="assets/images/efo-riro-fixed.png" alt="Bowl of Nigerian Efo riro with spinach and assorted vegetables">
 </picture>
 
 
@@ -138,9 +138,9 @@ https://meltingwax-19.github.io/exotic-nija-menu/
 
 Preferred format: .webp first, .png or .jpg fallback.
 
-Hero images: ~1600px width, 150–250 KB.
+Hero images: ~512px width, 150–250 KB.
 
-Dish images: ~349–500px width, 15-58 KB.
+Dish images: ~349–500px width, 15-72 KB.
 
 Semantic file names: dish-name.webp (kebab-case).
 

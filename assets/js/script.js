@@ -77,3 +77,17 @@ const yearEl = document.getElementById("year");
 if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
+
+
+// Back-to-top visibility + smooth scroll
+(function(){
+  const toTop = document.getElementById('toTop');
+  if (!toTop) return;
+  const showAt = 600;
+  const toggle = () => {
+    toTop.dataset.visible = window.scrollY > showAt ? "true" : "false";
+  };
+  window.addEventListener('scroll', toggle, {passive:true});
+  toggle();
+  toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+})();

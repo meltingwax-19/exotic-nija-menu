@@ -274,7 +274,7 @@ a:hover {
 }
 
 /* Wrapper prevents image overflow and enables aspect-ratio control */
-.hero__media {
+.hero .hero__media {
   border-radius: 1rem;
   overflow: hidden;
   background: var(--surface);
@@ -345,11 +345,11 @@ figure {
 
 /* On very small screens, constrain the hero image box to avoid huge heights */
 @media (max-width: 420px) {
-  .hero__media {
+.hero .hero__media {
     aspect-ratio: 4 / 3;
   }
 
-  .hero__media
+  .hero__media 
 }
 
 /* ===========================
@@ -359,11 +359,13 @@ figure {
   position: fixed;
   right: 1rem;
   bottom: 1rem;
+  left: auto;
+  appearance: none;
+  background-color: #000;
+  color: #fff;
   padding: 0.7rem 0.9rem;
   border-radius: 0.75rem;
   border: 0;
-  background: var(--text);
-  color: var(--bg);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
   opacity: 0;
   pointer-events: none;
@@ -401,12 +403,11 @@ figure {
    - Hero keeps a fixed 4:3 frame with cover (cinematic)
    - Cards keep natural image aspect ratios (no aggressive cropping)
 */
-.hero__media {
+.hero .hero__media {
   aspect-ratio: 4 / 3;
   overflow: hidden;
 }
-
-.hero__media img {
+.hero .hero__media img {
   inline-size: 100%;
   block-size: 100%;
   object-fit: cover;
@@ -414,14 +415,44 @@ figure {
 }
 
 .card__media {
-  overflow: hidden;
-  /* soft crop only if image is slightly larger */
+  overflow: hidden; /* soft crop only if image is slightly larger */
 }
-
 .card__media img {
   inline-size: 100%;
-  block-size: auto;
-  /* preserve natural aspect ratio */
+  block-size: auto;   /* preserve natural aspect ratio */
   display: block;
   /* no object-fit here to avoid heavy cropping */
+}
+
+
+/* === Recipe page image === */
+.recipe__media {
+  max-inline-size: clamp(320px, 92vw, 720px);
+  margin-inline: auto;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: var(--surface);
+}
+.recipe__media img {
+  inline-size: 100%;
+  block-size: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* === Recipe page image === */
+.recipe__media {
+  max-inline-size: clamp(320px, 90vw, 680px);
+  margin-inline: auto;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: var(--surface);
+}
+.recipe__media img {
+  max-inline-size: 100%;
+  max-block-size: 65vh;
+  inline-size: auto;
+  block-size: auto;
+  object-fit: contain;
+  display: block;
 }
